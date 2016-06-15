@@ -13,3 +13,6 @@
 .sidebar .tags .weight-3 { font-size: 18px; }
 .sidebar .tags .weight-4 { font-size: 21px; }
 .sidebar .tags .weight-5 { font-size: 24px; }
+.authors div {margin: 5px;}
+.sidebar .odd {background-color: #DDD; margin: 5px;}
+.sidebar .even {margin: 5px;}

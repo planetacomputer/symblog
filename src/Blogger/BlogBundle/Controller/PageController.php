@@ -61,11 +61,15 @@ class PageController extends Controller{
 
 	    $commentLimit   = $this->container
                            ->getParameter('blogger_blog.comments.latest_comment_limit');
+                           
     	$latestComments = $em->getRepository('BloggerBlogBundle:Comment')->getLatestComments($commentLimit);
+
+    	$authors = $em->getRepository('BloggerBlogBundle:Blog')->getRankAuthors();
 
 	    return $this->render('BloggerBlogBundle:Page:sidebar.html.twig', array(
 	        'tags' => $tagWeights,
-	        'latestComments'    => $latestComments
+	        'latestComments'    => $latestComments,
+	        'authors' => $authors
 	    ));
 	}
 }

@@ -28,6 +28,16 @@ class BlogRepository extends EntityRepository
                   ->getResult();
     }
 
+  public function getRankAuthors(){
+    $qb = $this->createQueryBuilder('b')
+          ->select('b.author, COUNT(b.id) AS mycount')
+          //->orderBy('mycount', 'DESC')
+          ->groupBy('b.author');
+
+    return $qb->getQuery()
+                  ->getResult();
+  }
+
   public function getTags()
   {
       $blogTags = $this->createQueryBuilder('b')

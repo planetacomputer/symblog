@@ -2,6 +2,17 @@
 
 <section class="section">
     <header>
+        <h3>Authors Ranking</h3>
+    </header>
+    <p class="authors">
+        {% for author in authors %}
+            <div class="{{ cycle(['odd', 'even'], loop.index0) }}">{{ author.author }}-----{{ author.mycount }}</div>
+        {% endfor %}
+    </p>
+</section>
+
+<section class="section">
+    <header>
         <h3>Tag Cloud</h3>
     </header>
     <p class="tags">
@@ -21,10 +32,10 @@
         <article class="comment">
             <header>
                 <p class="small"><span class="highlight">{{ comment.user }}</span> commented on
-                    <a href="{{ path('BloggerBlogBundle_blog_show', { 'id': comment.blog.id }) }}#comment-{{ comment.id }}">
+                    <a href="{{ path('BloggerBlogBundle_blog_show', { 'id': comment.blog.id, 'slug': comment.blog.slug }) }}#comment-{{ comment.id }}">
                         {{ comment.blog.title }}
                     </a>
-                    [<em><time datetime="{{ comment.created|date('c') }}">{{ comment.created|date('Y-m-d h:iA') }}</time></em>]
+                    [<em><time datetime="{{ comment.created|date('c') }}">{{ comment.created|created_ago }}</time></em>]
                 </p>
             </header>
             <p>{{ comment.comment }}</p>

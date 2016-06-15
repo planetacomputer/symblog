@@ -14,7 +14,7 @@ class BlogController extends Controller
     /**
      * Muestra una entrada del blog
      */
-    public function showAction($id)
+    public function showAction($id, $slug)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -26,12 +26,9 @@ class BlogController extends Controller
         $comments = $em->getRepository('BloggerBlogBundle:Comment')
                    ->getCommentsForBlog($blog->getId());
 
-
-
         /*$blog2 = $em->getRepository('BloggerBlogBundle:Blog')->find(2);
         $blog2->setAuthor('One Cool');
         $em->flush();*/
-
 
         return $this->render('BloggerBlogBundle:Blog:show.html.twig', array(
             'blog'      => $blog,
