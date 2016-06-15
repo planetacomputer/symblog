@@ -3,3 +3,4 @@ parameters:
     # dirección de correo electrónico para contacto del Blogger
     blogger_blog.emails.contact_email: miguelangel@email.com
     blogger_blog.plantilles.salutacions: hola
+    blogger_blog.comments.latest_comment_limit: 10
